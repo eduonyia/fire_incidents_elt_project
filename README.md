@@ -6,6 +6,9 @@ This project aims at building an Extract, Load, Transform (ELT) data pipeline us
 
 The image below shows the flow of the project:
 
+![image](https://github.com/eduonyia/fire_incidents_elt_project/assets/6407387/805dd8b2-c370-4fe0-b2f6-f51458d44b2d)
+
+
 
 
 ## Dataset Description

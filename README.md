@@ -18,5 +18,30 @@ The image below shows the flow of the project:
 - **Data Source:** San Francisco 
 - **Rows:** 648K
 - **Columns:** 64
-- **Description:** Fire Incidents includes a summary of each (non-medical) incident to which the SF Fire Department responded. Each incident record includes the call number, incident number, address, number and type of each unit responding, call type (as determined by dispatch), prime situation (field observation), actions taken, and property loss
+- **Description:** Fire Incidents includes a summary of each (non-medical) incident to which the SF Fire Department responded. Each incident record includes the call number, incident number, address, number and type of each unit responding, call type (as determined by dispatch), prime situation (field observation), actions taken, and property loss.
+- **Data Dictionary:** [FIR-0001_DataDictionary_fire-incidents.xlsx](https://github.com/eduonyia/fire_incidents_elt_project/files/13657247/FIR-0001_DataDictionary_fire-incidents.xlsx)
+
+# Project Milestones
+
+## Milestone 1- Data Extraction and Loading (Extract and Load Pipeline)
+
+### Code Explanation
+
+This code defines a custom Airflow Operator (`FireIncidentsToPostgresOperator`) responsible for extracting data from the San Francisco Fire Incidents dataset API and load it into a PostgreSQL database.The key components of the custom Airflow Operator are:
+
+- **Initialization:**
+  - The python constructor (`__init__` method) initializes the parameters, including the API details, PostgreSQL connection ID and table name.
+
+- **Execution Method (`execute`):**
+  - Constructs the API URL based on the provided endpoint.
+  - Sets up parameters for the API request, including limit and order.
+  - Sends a GET request to the API with proper headers and parameters.
+  - Performs error handling on the API response and converts the JSON data to a Pandas DataFrame if the response is successful (status code 200)
+  - Writes the Pandas DataFrame to a PostgreSQL database table using the SQLAlchemy
+
+
+## Milestone 2- Data Transformation and Integration (ELT Pipeline):
+
+A PostgreSQLToGCS Operator is created to transfer data from the PostgreSQL database table to Google Cloud Storage (GCS) bucket
+and later loaded to Google BigQuery for further analysis.
 

@@ -56,7 +56,7 @@ This section explains some tools and keywords used in this project.
 - **Airflow:**
   - Apache Airflow is an open-source workflow management platform for data engineering pipelines.
 
-- ** Directed Acyclic Graph (`dag`):**
+- **Directed Acyclic Graph (`dag`):**
   - is a collection of all the tasks you want to run, organized in a way that reflects their relationships and dependencies. A DAG is defined in a Python script, which represents the DAGs structure (tasks and their dependencies) as code.
 
 - **Tasks:**
